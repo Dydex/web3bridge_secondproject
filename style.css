@@ -96,7 +96,7 @@ body {
   border-color: rgb(137, 137, 186);
 }
 
-/* End - Button */
+/* End of - Buttons */
 
 .styleforQuebox {
   position: absolute;
@@ -108,6 +108,71 @@ body {
   padding-left: 1.5rem;
   padding-top: 1rem;
   padding-right: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .forTimer {
+  display: flex;
+  align-items: center;
+} */
+
+.timertext {
+  border: 0.5rem solid lightblue;
+  background-color: lightblue;
+  border-radius: 0.2rem;
+  width: 6rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer {
+  border: 0.1rem solid black;
+  color: white;
+  width: 1.8rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.timer2 {
+  border: 0.1rem solid black;
+  color: white;
+  width: 1.8rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.timer3 {
+  border: 0.1rem solid black;
+  color: white;
+  width: 1.8rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.timer4 {
+  border: 0.1rem solid black;
+  color: white;
+  width: 1.8rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.timer5 {
+  border: 0.1rem solid black;
+  color: white;
+  width: 1.8rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 .styleforResultbox {
