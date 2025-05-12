@@ -1,18 +1,19 @@
 "Use Strict";
 
 // Start Of Selectors
-const startButton = document.querySelector(".startbutton");
+const startButton = document.querySelector(".start-page");
 const instruct = document.querySelector(".instruction");
 const exitButton = document.querySelector(".twinone");
 const continueButton = document.querySelector(".twintwo");
 const replayBtn = document.querySelector(".replay");
+const quitQuizBtn = document.querySelector(".end");
 
 const firstQuestion = document.querySelector(".first-question");
 const secondQuestion = document.querySelector(".second-question");
 const thirdQuestion = document.querySelector(".third-question");
 const fourthQuestion = document.querySelector(".fourth-question");
 const fifthQuestion = document.querySelector(".fifth-question");
-const resultPage = document.querySelector(".result");
+const resultPage = document.querySelector(".last-result");
 
 const nextButton = document.querySelector(".next");
 const nextButtonTwo = document.querySelector(".secondNext");
@@ -148,32 +149,54 @@ nextButtonFour.addEventListener("click", function () {
 nextButtonFifth.addEventListener("click", function () {
   fifthQuestion.classList.add("hidden");
   resultPage.classList.remove("hidden");
+
+  const resultText = document.querySelector(".score");
+  resultText.textContent = `${score}`;
 });
 
-// replayBtn.addEventListener("click", function () {
-//   resultPage.classList.add("hidden");
-//   startButton.classList.remove("hidden");
-//   console.log("yh");
-// });
+replayBtn.addEventListener("click", function () {
+  resultPage.classList.add("hidden");
+  startButton.classList.remove("hidden");
+  reloadPage();
+});
+
+quitQuizBtn.addEventListener("click", function () {
+  resultPage.classList.add("hidden");
+  startButton.classList.remove("hidden");
+  reloadPage();
+});
+
+// Show Quiz Score
+let score = 0;
+
+// Restart The Quiz
+function reloadPage() {
+  location.reload();
+}
 
 // Show Answers Function Onclick
 const showAnswer1 = function () {
   const options = document.querySelectorAll(".options-paragraph");
-  const correctAnswer = "Hyper Text Preprocessor";
+  const correctAnswer = "Hyper Text Markup Language";
 
   options.forEach(function (text) {
     text.addEventListener("click", function () {
-      options.forEach(function (el) {
-        const content = el.textContent.trim();
-        nextButton.classList.remove("hidden");
-        clearInterval(countDown);
+      options.forEach((opt) => (opt.style.pointerEvents = "none"));
+      const content = text.textContent.trim();
+      nextButton.classList.remove("hidden");
 
-        if (content === correctAnswer) {
-          el.style.backgroundColor = "lightgreen";
-        } else {
-          el.style.backgroundColor = "lightcoral";
-        }
-      });
+      if (content === correctAnswer) {
+        text.style.backgroundColor = "lightgreen";
+        score++;
+      } else {
+        text.style.backgroundColor = "lightcoral";
+
+        options.forEach((opt) => {
+          if (opt.textContent.trim() === correctAnswer) {
+            opt.style.backgroundColor = "lightgreen";
+          }
+        });
+      }
     });
   });
 };
@@ -185,16 +208,22 @@ const showAnswer2 = function () {
 
   optionsTwo.forEach(function (text) {
     text.addEventListener("click", function () {
-      optionsTwo.forEach(function (el) {
-        const content = el.textContent.trim();
-        nextButtonTwo.classList.remove("hidden");
+      optionsTwo.forEach((opt) => (opt.style.pointerEvents = "none"));
+      const content = text.textContent.trim();
+      nextButtonTwo.classList.remove("hidden");
 
-        if (content === correctAnswerTwo) {
-          el.style.backgroundColor = "lightgreen";
-        } else {
-          el.style.backgroundColor = "lightcoral";
-        }
-      });
+      if (content === correctAnswerTwo) {
+        text.style.backgroundColor = "lightgreen";
+        score++;
+      } else {
+        text.style.backgroundColor = "lightcoral";
+
+        optionsTwo.forEach((opt) => {
+          if (opt.textContent.trim() === correctAnswerTwo) {
+            opt.style.backgroundColor = "lightgreen";
+          }
+        });
+      }
     });
   });
 };
@@ -207,16 +236,22 @@ const showAnswer3 = function () {
 
   optionsThree.forEach(function (text) {
     text.addEventListener("click", function () {
-      optionsThree.forEach(function (el) {
-        const content = el.textContent.trim();
-        nextButtonThree.classList.remove("hidden");
+      optionsThree.forEach((opt) => (opt.style.pointerEvents = "none"));
+      const content = text.textContent.trim();
+      nextButtonThree.classList.remove("hidden");
 
-        if (content === correctAnswerThree) {
-          el.style.backgroundColor = "lightgreen";
-        } else {
-          el.style.backgroundColor = "lightcoral";
-        }
-      });
+      if (content === correctAnswerThree) {
+        text.style.backgroundColor = "lightgreen";
+        score++;
+      } else {
+        text.style.backgroundColor = "lightcoral";
+
+        optionsThree.forEach((opt) => {
+          if (opt.textContent.trim() === correctAnswerThree) {
+            opt.style.backgroundColor = "lightgreen";
+          }
+        });
+      }
     });
   });
 };
@@ -229,16 +264,22 @@ const showAnswer4 = function () {
 
   optionsFour.forEach(function (text) {
     text.addEventListener("click", function () {
-      optionsFour.forEach(function (el) {
-        const content = el.textContent.trim();
-        nextButtonFour.classList.remove("hidden");
+      optionsFour.forEach((opt) => (opt.style.pointerEvents = "none"));
+      const content = text.textContent.trim();
+      nextButtonFour.classList.remove("hidden");
 
-        if (content === correctAnswerFour) {
-          el.style.backgroundColor = "lightgreen";
-        } else {
-          el.style.backgroundColor = "lightcoral";
-        }
-      });
+      if (content === correctAnswerFour) {
+        text.style.backgroundColor = "lightgreen";
+        score++;
+      } else {
+        text.style.backgroundColor = "lightcoral";
+
+        optionsFour.forEach((opt) => {
+          if (opt.textContent.trim() === correctAnswerFour) {
+            opt.style.backgroundColor = "lightgreen";
+          }
+        });
+      }
     });
   });
 };
@@ -251,20 +292,29 @@ const showAnswer5 = function () {
 
   optionsFive.forEach(function (text) {
     text.addEventListener("click", function () {
-      optionsFive.forEach(function (el) {
-        const content = el.textContent.trim();
-        // nextButtonFifth.classList.remove("hidden");
+      optionsFive.forEach((opt) => (opt.style.pointerEvents = "none"));
+      const content = text.textContent.trim();
+      nextButtonFifth.classList.remove("hidden");
 
-        if (content === correctAnswerFive) {
-          el.style.backgroundColor = "lightgreen";
-        } else {
-          el.style.backgroundColor = "lightcoral";
-        }
-      });
+      if (content === correctAnswerFive) {
+        text.style.backgroundColor = "lightgreen";
+        score++;
+        console.log(score);
+      } else {
+        text.style.backgroundColor = "lightcoral";
+
+        optionsFive.forEach((opt) => {
+          if (opt.textContent.trim() === correctAnswerFive) {
+            opt.style.backgroundColor = "lightgreen";
+          }
+        });
+      }
     });
   });
 };
 showAnswer5();
+
+//
 
 // Show Answer After Timer Ends
 function revealAnswer() {

@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
 
-    <title>Document</title>
+    <title>Quiz App</title>
   </head>
   <body>
-    <button class="startbutton">Start Quiz</button>
+    <div class="start-page">
+      <button class="startbutton">Start Quiz</button>
+    </div>
 
     <div class="instruction hidden styleforbox">
       <h3 class="styleforh3">Some Rules of This Quiz</h3>
@@ -193,15 +195,21 @@
       </div>
     </div>
 
-    <div class="result hidden styleforResultbox">
-      <div class="resultText">
-        <p>You've completed the Quiz!</p>
-        <p>and nice , You got 2 out of 5</p>
-      </div>
+    <div class="last-result hidden styleforResultbox">
+      <div class="resultPage">
+        <div class="resultText">
+          <div class="image">
+            <img src="images/crown-3-128.png" alt="crownimage" />
+          </div>
 
-      <div class="resultBtn">
-        <button class="replay">Replay Quiz</button>
-        <button class="twinone">Quit Quiz</button>
+          <p>You've completed the Quiz!</p>
+          <p>and nice &#128526 , You got <span class="score">2</span> out of 5</p>
+        </div>
+
+        <div class="resultBtn">
+          <button class="replay">Replay Quiz</button>
+          <button class="end">Quit Quiz</button>
+        </div>
       </div>
     </div>
 
